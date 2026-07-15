@@ -216,12 +216,12 @@ nav a:hover {
     align-items: center;
     justify-content: space-between;
     gap: 50px;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .doc-text {
-    flex: 1.2;
+    flex: 1;
 }
 
 .doc-text h2 {
@@ -243,7 +243,6 @@ nav a:hover {
 
 .doc-features {
     list-style: none;
-    margin-bottom: 35px;
 }
 
 .doc-features li {
@@ -252,28 +251,11 @@ nav a:hover {
     font-size: 1rem;
 }
 
-.btn-download {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 15px 35px;
-}
-
-.file-info {
-    font-size: 0.75rem;
-    opacity: 0.8;
-    margin-top: 2px;
-    font-weight: normal;
-}
-
 /* Dokumenten-Vorschau-Box */
 .doc-preview-box {
-    flex: 0.8;
+    flex: 1.2;
     background-color: var(--card-bg);
     border: 2px solid rgba(255, 255, 255, 0.05);
-    height: 380px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -283,60 +265,19 @@ nav a:hover {
 }
 
 .doc-preview-box:hover {
-    transform: translateY(-5px) rotate(1deg);
+    transform: translateY(-5px);
     border-color: var(--accent-color);
 }
 
-.preview-header {
-    background-color: #10141e;
-    padding: 12px;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-align: center;
-    color: var(--text-muted);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.preview-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    background: linear-gradient(135deg, #161b26 0%, #0d111a 100%);
-    text-align: center;
-}
-
-.preview-title {
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--accent-color);
-    letter-spacing: 3px;
-    margin-bottom: 5px;
-}
-
-.preview-subtitle {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    margin-bottom: 40px;
-}
-
-.preview-line {
-    width: 80%;
-    height: 4px;
-    background-color: rgba(255,255,255,0.1);
-    margin-bottom: 12px;
-    border-radius: 2px;
-}
-
-.preview-line.short {
-    width: 50%;
+/* Einstellungen für das eingebettete interaktive PDF-Fenster */
+.doc-preview-box.real-pdf {
+    height: 750px;
+    background-color: #1e293b;
+    border-color: rgba(0, 255, 204, 0.2);
 }
 
 /* Responsive Anpassung */
-@media (max-width: 768px) {
+@media (max-width: 950px) {
     .doc-container {
         flex-direction: column;
         text-align: center;
@@ -345,10 +286,9 @@ nav a:hover {
         display: inline-block;
         text-align: left;
     }
-    .doc-preview-box {
+    .doc-preview-box.real-pdf {
         width: 100%;
-        max-width: 320px;
-        height: 320px;
+        height: 550px;
     }
 }
 
