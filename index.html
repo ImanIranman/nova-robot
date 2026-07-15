@@ -26,7 +26,7 @@
     </section>
 
     <section id="specs" class="specs-section">
-        <h2>Technische Daten</h2>
+        <h2>Technischer Aufbau</h2>
         <div class="specs-grid">
             <div class="card">
                 <h3>Recheneinheit</h3>
@@ -40,8 +40,28 @@
             </div>
             <div class="card">
                 <h3>Chassis</h3>
-                <p>Yahboom Basis</p>
+                <p>Aluminium Basis</p>
                 <span>Robuste und flexible Struktur für Hardware-Erweiterungen.</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="specs-section" style="padding-top: 0;">
+        <div class="specs-grid">
+            <div class="card">
+                <h3>Sensorik</h3>
+                <p>LIDAR & Kameras</p>
+                <span>Präzise Umgebungswahrnehmung für Navigation und Objekt- und Personenerkennung.</span>
+            </div>
+            <div class="card">
+                <h3>Steuerung</h3>
+                <p>ROS-V3</p>
+                <span>Steuereinheit um die Räder einzeln und unabhängig voneinander zu steuern.</span>
+            </div>
+            <div class="card">
+                <h3>Energieversorgung</h3>
+                <p>Li-Ion Akkus</p>
+                <span>Parallel geschaltete 12V Akkus für eine lange Laufzeit.</span>
             </div>
         </div>
     </section>
@@ -51,27 +71,55 @@
         <p>Von der Idee zum autonomen System: Die Evolution von Nova.</p>
         
         <div class="gallery-grid">
+            
             <div class="gallery-item">
                 <img src="bilder/nova-prototyp-v1.jpg" alt="Erster Prototyp von Nova, Yahboom Basis">
                 <div class="gallery-caption">
                     <h4>Der Prototyp</h4>
-                    <p>Die erste Vorlage für das optische Design</p>
+                    <p>Die erste Vorlage für das optische Design.</p>
                 </div>
             </div>
+
             <div class="gallery-item">
                 <img src="bilder/nova-jetson-integration.jpg" alt="Nova mit installiertem NVIDIA Jetson Orin NX">
                 <div class="gallery-caption">
                     <h4>Der Body</h4>
-                    <p>Der Aufbau und die einzelnen Komponenten</p>
+                    <p>Der Aufbau und die einzelnen Komponenten.</p>
                 </div>
             </div>
+
             <div class="gallery-item">
-                <img src="bilder/nova-ki-tests.jpg" alt="Nova Roboter bei Navigations-Tests in Innenräumen">
+                <img src="bilder/nova-ki-tests.jpg" alt="NVIDIA Jetson Orin NX Entwickler-Kit">
                 <div class="gallery-caption">
                     <h4>Das Gehirn</h4>
-                    <p>NVIDIA Jetson Orin NX 16 GB für maximale Autonomität</p>
+                    <p>NVIDIA Jetson Orin NX 16 GB für maximale Autonomität.</p>
                 </div>
             </div>
+
+            <div class="gallery-item">
+                <img src="bilder/nova-akkus.jpg" alt="Nova Roboter mit den parallel geschalteten 12V Li-Ion Akkus">
+                <div class="gallery-caption">
+                    <h4>Die Energieversorgung</h4>
+                    <p>Parallel geschaltete 12V Li-Ion Akkus für maximale Laufzeit.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="bilder/nova-steuerung.jpg" alt="ROS-V3 Steuerungssystem auf Nova">
+                <div class="gallery-caption">
+                    <h4>Die Steuerung</h4>
+                    <p>ROS-V3 ermöglicht die präzise Einzelradsteuerung.</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="bilder/nova-sensorik.jpg" alt="Nova Sensor-Suite mit LIDAR & Intel Realsense">
+                <div class="gallery-caption">
+                    <h4>Die Sensorik</h4>
+                    <p>Kombination aus LIDAR & Intel Realsense für 3D-Räumlidarkartierung.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -81,7 +129,7 @@
                 <h2>Ausführliche Dokumentation</h2>
                 <p class="doc-subtitle">Systemarchitektur, Kinematik & Steuerungs-Software</p>
                 <p>
-                    Lies die vollständige technische Dokumentation zu Projekt Nova (V3) direkt hier auf der Seite. Das Dokument enthält tiefgehende Einblicke in die mathematische Modellierung der Mecanum-Kinematik, die Integration des NVIDIA Jetson Orin NX sowie die ROS2-Softwarestruktur.
+                    Lies die vollständige technische Dokumentation zu Projekt Nova direkt hier auf der Seite. Das Dokument enthält tiefgehende Einblicke in die mathematische Modellierung der Mecanum-Kinematik, die Integration des NVIDIA Jetson Orin NX sowie die ROS-V3-Softwarestruktur.
                 </p>
                 <p>
                     Die Dokumentation enthält zahlreiche hochauflösende Grafiken und Fotos zur anschaulichen Visualisierung der einzelnen Integrationsschritte.
@@ -89,13 +137,13 @@
                 <ul class="doc-features">
                     <li>✓ Vollständiger Schaltplan & Pin-Belegungen</li>
                     <li>✓ Kinematische Gleichungen für omnidirektionale Fahrt</li>
-                    <li>✓ ROS2-Knoten-Struktur & Python-Codebeispiele</li>
+                    <li>✓ ROS-V3-Knoten-Struktur & Python-Codebeispiele</li>
                     <li>✓ Reich bebilderte Schritt-für-Schritt-Anleitung</li>
                 </ul>
             </div>
             
             <div class="doc-preview-box real-pdf">
-                <iframe src="nova-dokumentation-v3.pdf#toolbar=1&navpanes=0" width="100%" height="100%" style="border: none;"></iframe>
+                <iframe src="nova-dokumentation-v3.pdf#toolbar=0&navpanes=0" width="100%" height="100%" style="border: none;"></iframe>
             </div>
         </div>
     </section>
