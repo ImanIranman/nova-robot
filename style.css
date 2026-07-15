@@ -1,0 +1,362 @@
+/* Globale Stile & CSS-Variablen */
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: #161b26;
+    --accent-color: #00ffcc;
+    --text-color: #f3f4f6;
+    --text-muted: #9ca3af;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Header & Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: rgba(11, 15, 25, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background: radial-gradient(circle at center, #1e293b 0%, var(--bg-color) 70%);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 255, 204, 0.3);
+}
+
+/* Specs Section (Grid-Layout) */
+.specs-section {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.specs-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.card span {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* Fortschritts-Galerie */
+.progress-section {
+    padding: 80px 8%;
+    background-color: var(--card-bg);
+}
+
+.progress-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.progress-section p {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+/* Verhindert das Abschneiden deiner Bilder */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+    background-color: #080a10;
+    display: block;
+}
+
+.gallery-caption {
+    padding: 15px;
+}
+
+.gallery-caption h4 {
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.gallery-caption p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    text-align: left;
+}
+
+/* Dokumentations-Bereich */
+.doc-section {
+    padding: 100px 8%;
+    background-color: var(--bg-color);
+}
+
+.doc-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.doc-text {
+    flex: 1.2;
+}
+
+.doc-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.doc-subtitle {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.doc-text p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.doc-features {
+    list-style: none;
+    margin-bottom: 35px;
+}
+
+.doc-features li {
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.btn-download {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 35px;
+}
+
+.file-info {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-top: 2px;
+    font-weight: normal;
+}
+
+/* Dokumenten-Vorschau-Box */
+.doc-preview-box {
+    flex: 0.8;
+    background-color: var(--card-bg);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    height: 380px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.doc-preview-box:hover {
+    transform: translateY(-5px) rotate(1deg);
+    border-color: var(--accent-color);
+}
+
+.preview-header {
+    background-color: #10141e;
+    padding: 12px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-align: center;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.preview-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #161b26 0%, #0d111a 100%);
+    text-align: center;
+}
+
+.preview-title {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.preview-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.preview-line {
+    width: 80%;
+    height: 4px;
+    background-color: rgba(255,255,255,0.1);
+    margin-bottom: 12px;
+    border-radius: 2px;
+}
+
+.preview-line.short {
+    width: 50%;
+}
+
+/* Responsive Anpassung */
+@media (max-width: 768px) {
+    .doc-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .doc-features {
+        display: inline-block;
+        text-align: left;
+    }
+    .doc-preview-box {
+        width: 100%;
+        max-width: 320px;
+        height: 320px;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
