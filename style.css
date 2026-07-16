@@ -94,7 +94,7 @@ nav a:hover {
     box-shadow: 0 10px 20px rgba(0, 255, 204, 0.3);
 }
 
-/* Specs Section */
+/* Specs Section (Starr fixiertes 3er Grid) */
 .specs-section {
     padding: 80px 8%;
     text-align: center;
@@ -107,7 +107,7 @@ nav a:hover {
 
 .specs-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Auf 3 Spalten fixiert */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -146,7 +146,7 @@ nav a:hover {
     color: var(--text-muted);
 }
 
-/* Fortschritts-Galerie (Gesperrtes 3x2 Layout) */
+/* Fortschritts-Galerie (ABSOLUT STARR FIXIERTES 3x2 LAYOUT) */
 .progress-section {
     padding: 80px 8%;
     background-color: var(--card-bg);
@@ -165,8 +165,9 @@ nav a:hover {
 
 .gallery-grid {
     display: grid;
-    /* EXAKTE 3 SPALTEN: Verhindert, dass beim Zoomen 4 Bilder nebeneinander rutschen */
+    /* Starr fixierte 3 Spalten x 2 Zeilen */
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
     max-width: 1200px;
     margin: 0 auto;
     gap: 20px;
@@ -176,18 +177,18 @@ nav a:hover {
     background-color: var(--bg-color);
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: border-color 0.3s;
 }
 
 .gallery-item:hover {
-    transform: scale(1.03);
+    /* Keinerlei Skalierung oder Größenänderung beim Hovern/Zoomen */
+    border-color: var(--accent-color);
 }
 
 .gallery-item img {
     width: 100%;
-    height: auto;
-    max-height: 250px;
+    height: 220px; /* Feste Bildhöhe verhindert Ruckeln */
     object-fit: contain;
     background-color: #080a10;
     display: block;
@@ -264,7 +265,6 @@ nav a:hover {
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    transition: transform 0.3s, border-color 0.3s;
 }
 
 .doc-preview-box.real-pdf {
@@ -273,11 +273,15 @@ nav a:hover {
     border-color: rgba(0, 255, 204, 0.2);
 }
 
-/* Responsive Anpassung für Mobilgeräte / schmale Bildschirme */
+/* Responsive Anpassung für Mobilgeräte */
 @media (max-width: 850px) {
     .specs-grid,
     .gallery-grid {
-        grid-template-columns: 1fr; /* Auf Smartphones 1 Spalte */
+        grid-template-columns: 1fr; /* Auf Smartphones sauber untereinander */
+    }
+    .gallery-item img {
+        height: auto;
+        max-height: 250px;
     }
     .doc-container {
         flex-direction: column;
