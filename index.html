@@ -9,7 +9,9 @@
 <body>
 
     <header>
-        <div class="logo">PROJECT NOVA</div>
+        <div class="logo">
+            PROJECT NOVA <span class="status-dot" title="System Online"></span>
+        </div>
         <nav>
             <a href="#specs">Spezifikationen</a>
             <a href="#fortschritt">Fortschritt</a>
@@ -27,51 +29,106 @@
 
     <section id="specs" class="specs-section">
         <h2>Technischer Aufbau</h2>
-        <div class="specs-grid">
-            <div class="card">
-                <h3>Recheneinheit</h3>
-                <p>NVIDIA Jetson Orin NX</p>
-                <span>Bereit für komplexe KI-Modelle und Computer Vision in Echtzeit.</span>
-            </div>
-            <div class="card">
-                <h3>Antrieb</h3>
-                <p>Mecanum-Räder</p>
-                <span>Ermöglicht omnidirektionale Bewegungen auf engstem Raum.</span>
-            </div>
-            <div class="card">
-                <h3>Chassis</h3>
-                <p>Aluminium Basis</p>
-                <span>Robuste und flexible Struktur für Hardware-Erweiterungen.</span>
-            </div>
-        </div>
-    </section>
+        <p class="specs-subtitle">Fahre mit der Maus über eine Karte, um die Hardware-Komponente zu sehen.</p>
 
-    <section class="specs-section" style="padding-top: 0;">
         <div class="specs-grid">
-            <div class="card">
-                <h3>Sensorik</h3>
-                <p>LIDAR & Kameras</p>
-                <span>Präzise Umgebungswahrnehmung für Navigation und Objekt- und Personenerkennung.</span>
+            
+            <div class="card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Recheneinheit</h3>
+                        <p>NVIDIA Jetson Orin NX</p>
+                        <span>Bereit für komplexe KI-Modelle und Computer Vision in Echtzeit.</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="bilder/recheneinheit.jpg" alt="NVIDIA Jetson Orin NX">
+                        <div class="card-caption">NVIDIA Jetson Orin NX</div>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h3>Steuerung</h3>
-                <p>ROS-V3</p>
-                <span>Steuereinheit um die Räder einzeln und unabhängig voneinander zu steuern.</span>
+
+            <div class="card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Antrieb</h3>
+                        <p>Mecanum-Räder</p>
+                        <span>Ermöglicht omnidirektionale Bewegungen auf engstem Raum.</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="bilder/antrieb.jpg" alt="Mecanum-Räder">
+                        <div class="card-caption">Mecanum-Räder</div>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h3>Energieversorgung</h3>
-                <p>Li-Ion Akkus</p>
-                <span>Parallel geschaltete 12V Akkus für eine lange Laufzeit.</span>
+
+            <div class="card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Chassis</h3>
+                        <p>Aluminium Basis</p>
+                        <span>Robuste und flexible Struktur für Hardware-Erweiterungen.</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="bilder/chassis.jpg" alt="Aluminium Chassis">
+                        <div class="card-caption">Aluminium Basis</div>
+                    </div>
+                </div>
             </div>
+
+        </div>
+
+        <div class="specs-grid" style="margin-top: 30px;">
+            
+            <div class="card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Sensorik</h3>
+                        <p>LIDAR & Kameras</p>
+                        <span>Präzise Umgebungswahrnehmung für Navigation und Objekt- und Personenerkennung.</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="bilder/sensorik.jpg" alt="LIDAR & Kameras">
+                        <div class="card-caption">LIDAR & Kameras</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Steuerung</h3>
+                        <p>ROS-V3</p>
+                        <span>Steuereinheit um die Räder einzeln und unabhängig voneinander zu steuern.</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="bilder/steuerung.jpg" alt="ROS-V3 Steuerung">
+                        <div class="card-caption">ROS-V3 Steuerung</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h3>Energieversorgung</h3>
+                        <p>Li-Ion Akkus</p>
+                        <span>Parallel geschaltete 12V Akkus für eine lange Laufzeit.</span>
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="bilder/energieversorgung.jpg" alt="12V Li-Ion Akkus">
+                        <div class="card-caption">12V Li-Ion Akkus</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section id="fortschritt" class="progress-section">
-        <h2>Entwicklungs & Komponenten</h2>
+        <h2>Entwicklung & Komponenten</h2>
         <p>Von der Idee zum autonomen System: Die Evolution von Nova.</p>
         
         <div class="gallery-grid">
-            
             <div class="gallery-item">
                 <img src="bilder/nova-prototyp-v1.jpg" alt="Erster Prototyp von Nova, Yahboom Basis">
                 <div class="gallery-caption">
@@ -79,7 +136,6 @@
                     <p>Die erste Vorlage für das optische Design.</p>
                 </div>
             </div>
-
             <div class="gallery-item">
                 <img src="bilder/nova-jetson-integration.jpg" alt="Nova mit installiertem NVIDIA Jetson Orin NX">
                 <div class="gallery-caption">
@@ -87,7 +143,6 @@
                     <p>Der Aufbau und die einzelnen Komponenten.</p>
                 </div>
             </div>
-
             <div class="gallery-item">
                 <img src="bilder/nova-ki-tests.jpg" alt="NVIDIA Jetson Orin NX Entwickler-Kit">
                 <div class="gallery-caption">
@@ -95,7 +150,6 @@
                     <p>NVIDIA Jetson Orin NX 16 GB für maximale Autonomität.</p>
                 </div>
             </div>
-
             <div class="gallery-item">
                 <img src="bilder/nova-akkus.jpg" alt="Nova Roboter mit den parallel geschalteten 12V Li-Ion Akkus">
                 <div class="gallery-caption">
@@ -103,7 +157,6 @@
                     <p>Parallel geschaltete 12V Li-Ion Akkus für maximale Laufzeit.</p>
                 </div>
             </div>
-
             <div class="gallery-item">
                 <img src="bilder/nova-steuerung.jpg" alt="ROS-V3 Steuerungssystem auf Nova">
                 <div class="gallery-caption">
@@ -111,7 +164,6 @@
                     <p>ROS-V3 ermöglicht die präzise Einzelradsteuerung.</p>
                 </div>
             </div>
-
             <div class="gallery-item">
                 <img src="bilder/nova-sensorik.jpg" alt="Nova Sensor-Suite mit LIDAR & Intel Realsense">
                 <div class="gallery-caption">
@@ -119,7 +171,6 @@
                     <p>Kombination aus LIDAR & Intel Realsense für 3D-Räumlidarkartierung.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
