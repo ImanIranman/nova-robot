@@ -72,7 +72,7 @@ nav a:hover {
     color: var(--accent-color);
 }
 
-/* Hero Section mit Hochformat-Hintergrundbild */
+/* Hero Section */
 .hero {
     height: 85vh;
     display: flex;
@@ -154,13 +154,14 @@ nav a:hover {
     margin: 0 auto;
 }
 
-/* Allgemeine 3D-Karten-Logik */
+/* 3D-Karten-Logik (Maus-Hover + Touch-Geste) */
 .flip-card {
     background-color: transparent !important;
     border: none !important;
     padding: 0 !important;
     height: 220px;
     perspective: 1000px;
+    cursor: pointer;
 }
 
 .flip-card-inner {
@@ -172,7 +173,9 @@ nav a:hover {
     transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+/* Drehung per Hover (Desktop) oder per Klasse .flipped (Mobil) */
+.flip-card:hover .flip-card-inner,
+.flip-card-inner.flipped {
     transform: rotateY(180deg);
 }
 
@@ -244,7 +247,7 @@ nav a:hover {
     backdrop-filter: blur(4px);
 }
 
-/* Galerie mit 3D-Flip-Cards für "Entwicklung & Komponenten" */
+/* Galerie "Entwicklung & Komponenten" */
 .progress-section {
     padding: 80px 8%;
     background-color: var(--card-bg);
@@ -276,7 +279,6 @@ nav a:hover {
     height: 290px;
 }
 
-/* Galerie Vorderseite */
 .gallery-front {
     background-color: var(--bg-color);
     display: flex;
@@ -307,7 +309,6 @@ nav a:hover {
     margin: 0;
 }
 
-/* Galerie Rückseite */
 .gallery-back {
     background-color: var(--bg-color);
     padding: 25px 20px;
@@ -393,7 +394,7 @@ nav a:hover {
     font-size: 1rem;
 }
 
-/* DESKTOP PDF ANSICHT (Groß & Scrollbar) */
+/* DESKTOP PDF ANSICHT (Unverändert groß) */
 .pdf-wrapper {
     flex: 1.2;
     display: flex;
@@ -402,7 +403,7 @@ nav a:hover {
 }
 
 .doc-preview-box.real-pdf {
-    height: 800px; /* Schön groß auf dem Desktop */
+    height: 800px;
     width: 100%;
     background-color: #1e293b;
     border: 2px solid rgba(0, 255, 204, 0.2);
@@ -411,7 +412,6 @@ nav a:hover {
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* Mobile Controls auf Desktop ausblenden */
 .mobile-pdf-controls {
     display: none;
 }
@@ -457,40 +457,43 @@ nav a:hover {
         text-align: left;
     }
 
-    /* MOBILER PDF CONTAINER: Perfekt eingepasst, kein horizontales Scrollen */
+    /* MOBILER PDF-CONTAINER: Kein horizontales Wackeln/Schieben mehr */
     .doc-preview-box.real-pdf {
-        height: 50vh; /* Exakt ans Display angepasst */
+        height: 55vh;
         width: 100%;
-        max-width: 100vw;
+        max-width: 100%;
+        overflow: hidden; /* Verhindert seitliches Verschieben */
         border-radius: 8px;
     }
 
-    /* MOBILE PFEIL-STEUERUNG UNTER DEM PDF */
+    /* NATIVE MOBILE PFEIL-BUTTONS UNTER DEM PDF */
     .mobile-pdf-controls {
         display: flex;
-        justify-content: space-between;
-        gap: 10px;
+        justify-content: center;
+        gap: 30px;
         margin-top: 15px;
         width: 100%;
     }
 
     .pdf-nav-btn {
-        flex: 1;
-        padding: 12px 10px;
+        width: 60px;
+        height: 45px;
         background-color: var(--card-bg);
         color: var(--accent-color);
         border: 1px solid var(--accent-color);
         border-radius: 6px;
-        font-weight: bold;
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         transition: background-color 0.2s, transform 0.1s;
     }
 
     .pdf-nav-btn:active {
         background-color: var(--accent-color);
         color: #000;
-        transform: scale(0.98);
+        transform: scale(0.95);
     }
 }
 

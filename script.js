@@ -3,42 +3,54 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Nova Robot Portfolio-Webseite erfolgreich geladen.");
 
+    // 1. TOUCH-SUPPORT FÜR FLIP-KARTEN AUF HANDYS
+    const flipCards = document.querySelectorAll('.flip-card');
+    flipCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const inner = card.querySelector('.flip-card-inner');
+            if (inner) {
+                inner.classList.toggle('flipped');
+            }
+        });
+    });
+
+    // 2. MOBILES SEITEN-BLÄTTERN FÜR DAS PDF
     let currentPage = 1;
-    const totalPages = 20; // Maximal-Seiten des PDFs
     const pdfIframe = document.getElementById('pdfIframe');
     const pdfPrevBtn = document.getElementById('pdfPrevBtn');
     const pdfNextBtn = document.getElementById('pdfNextBtn');
 
-    // Funktion zum Wechseln der PDF-Seite
-    function updatePdfPage(newPage) {
-        if (newPage >= 1 && newPage <= totalPages) {
-            currentPage = newPage;
-            // Lädt das PDF direkt auf der angegebenen Seitenzahl
-            pdfIframe.src = `nova-dokumentation-v3.pdf#page=${currentPage}&toolbar=0&navpanes=0&view=FitH`;
+    function loadPdfPage(page) {
+        if (pdfIframe && page >= 1) {
+            currentPage = page;
+            // Lädt das PDF exakt skaliert auf der gewählten Seitenzahl
+            pdfIframe.src = `nova-dokumentation-v3.pdf#page=${currentPage}&toolbar=0&navpanes=0&view=Fit`;
         }
     }
 
-    // Event-Listener für mobile Buttons (unter dem PDF)
-    if (pdfPrevBtn && pdfNextBtn) {
-        pdfPrevBtn.addEventListener('click', () => {
+    if (pdfPrevBtn) {
+        pdfPrevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             if (currentPage > 1) {
-                updatePdfPage(currentPage - 1);
+                loadPdfPage(currentPage - 1);
             }
-        });
-
-        pdfNextBtn.addEventListener('click', () => {
-            updatePdfPage(currentPage + 1);
         });
     }
 
-    // Deaktiviert das Zoomen via Strg + Mausrad
+    if (pdfNextBtn) {
+        pdfNextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            loadPdfPage(currentPage + 1);
+        });
+    }
+
+    // 3. ZOOM-SPERRE
     document.addEventListener('wheel', (event) => {
         if (event.ctrlKey) {
             event.preventDefault();
         }
     }, { passive: false });
 
-    // Zoom-Tastenkombinationen verhindern
     document.addEventListener('keydown', (event) => {
         if (event.ctrlKey && (event.key === '+' || event.key === '-' || event.key === '=' || event.key === '0')) {
             event.preventDefault();
