@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Nova Robot Portfolio-Webseite erfolgreich geladen.");
 
     const pdfContainer = document.getElementById('pdfContainer');
+    const pdfPrevBtn = document.getElementById('pdfPrevBtn');
+    const pdfNextBtn = document.getElementById('pdfNextBtn');
 
     // Deaktiviert das Zoomen via Strg + Mausrad
     document.addEventListener('wheel', (event) => {
@@ -30,4 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // Button-Steuerung für PDF-Navigation
+    if (pdfPrevBtn && pdfContainer) {
+        pdfPrevBtn.addEventListener('click', () => {
+            pdfContainer.scrollTop -= 60;
+        });
+    }
+
+    if (pdfNextBtn && pdfContainer) {
+        pdfNextBtn.addEventListener('click', () => {
+            pdfContainer.scrollTop += 60;
+        });
+    }
 });

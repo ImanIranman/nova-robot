@@ -21,7 +21,7 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Nova - Mobiler Roboter - Prototyp</h1>
+            <h1>Nova<br>Mobiler Roboter<br>Prototyp</h1>
             <p>Die Zukunft der autonomen Roboter, angetrieben durch KI und modernste Hardware-Architektur.</p>
             <a href="#specs" class="btn">Spezifikationen ansehen</a>
         </div>
@@ -248,8 +248,12 @@
                 </ul>
             </div>
             
-            <div class="doc-preview-box real-pdf" id="pdfContainer" tabindex="0">
-                <iframe id="pdfIframe" src="nova-dokumentation-v3.pdf#toolbar=0&navpanes=0&view=FitH" width="100%" height="100%" style="border: none;"></iframe>
+            <div class="pdf-wrapper">
+                <button id="pdfPrevBtn" class="pdf-nav-btn pdf-prev" title="Nach oben">◀</button>
+                <div class="doc-preview-box real-pdf" id="pdfContainer" tabindex="0">
+                    <iframe id="pdfIframe" src="nova-dokumentation-v3.pdf#toolbar=0&navpanes=0&view=FitH" width="100%" height="100%" style="border: none;"></iframe>
+                </div>
+                <button id="pdfNextBtn" class="pdf-nav-btn pdf-next" title="Nach unten">▶</button>
             </div>
         </div>
     </section>
