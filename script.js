@@ -3,28 +3,57 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Nova Robot Portfolio-Webseite erfolgreich geladen.");
 
-    // 1. TOUCH-SUPPORT FÜR FLIP-KARTEN AUF HANDYS
+    // 1. TOUCH-SUPPORT FÜR FLIP-KARTEN (An- und Ausdrehen per Tap)
     const flipCards = document.querySelectorAll('.flip-card');
+    
     flipCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const inner = card.querySelector('.flip-card-inner');
-            if (inner) {
-                inner.classList.toggle('flipped');
+        card.addEventListener('click', (e) => {
+            // Nur auf mobilen Bildschirmen per Klick drehen
+            if (window.innerWidth <= 850) {
+                const inner = card.querySelector('.flip-card-inner');
+                if (inner) {
+                    inner.classList.toggle('flipped');
+                }
             }
         });
     });
+
+    // AUTO-RESET: Dreht Karten automatisch zurück, sobald sie beim Scrollen aus dem Bild verschwinden
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    const inner = entry.target.querySelector('.flip-card-inner');
+                    if (inner) {
+                        inner.classList.remove('flipped');
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        flipCards.forEach(card => observer.observe(card));
+    }
 
     // 2. MOBILES SEITEN-BLÄTTERN FÜR DAS PDF
     let currentPage = 1;
     const pdfIframe = document.getElementById('pdfIframe');
     const pdfPrevBtn = document.getElementById('pdfPrevBtn');
     const pdfNextBtn = document.getElementById('pdfNextBtn');
+    const pdfPageIndicator = document.getElementById('pdfPageIndicator');
 
-    function loadPdfPage(page) {
+    function updatePdfPage(page) {
         if (pdfIframe && page >= 1) {
             currentPage = page;
-            // Lädt das PDF exakt skaliert auf der gewählten Seitenzahl
-            pdfIframe.src = `nova-dokumentation-v3.pdf#page=${currentPage}&toolbar=0&navpanes=0&view=Fit`;
+            
+            // Erzwingt sauberes Nachladen auf mobilen Geräten
+            const baseUrl = 'nova-dokumentation-v3.pdf';
+            const params = `#page=${currentPage}&toolbar=0&navpanes=0&view=FitH`;
+            
+            pdfIframe.src = baseUrl + params;
+
+            if (pdfPageIndicator) {
+                pdfPageIndicator.textContent = `Seite ${currentPage}`;
+            }
         }
     }
 
@@ -32,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pdfPrevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (currentPage > 1) {
-                loadPdfPage(currentPage - 1);
+                updatePdfPage(currentPage - 1);
             }
         });
     }
@@ -40,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pdfNextBtn) {
         pdfNextBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            loadPdfPage(currentPage + 1);
+            updatePdfPage(currentPage + 1);
         });
     }
 

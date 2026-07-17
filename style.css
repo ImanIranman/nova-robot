@@ -154,7 +154,7 @@ nav a:hover {
     margin: 0 auto;
 }
 
-/* 3D-Karten-Logik (Maus-Hover + Touch-Geste) */
+/* 3D-Karten-Logik (Maus-Hover + Touch-Klick) */
 .flip-card {
     background-color: transparent !important;
     border: none !important;
@@ -173,10 +173,15 @@ nav a:hover {
     transform-style: preserve-3d;
 }
 
-/* Drehung per Hover (Desktop) oder per Klasse .flipped (Mobil) */
-.flip-card:hover .flip-card-inner,
+/* Drehung auf Desktop per Hover, auf Mobilgeräten per Klasse .flipped */
+@media (min-width: 851px) {
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+}
+
 .flip-card-inner.flipped {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) !important;
 }
 
 .flip-card-front, .flip-card-back {
@@ -394,7 +399,7 @@ nav a:hover {
     font-size: 1rem;
 }
 
-/* DESKTOP PDF ANSICHT (Unverändert groß) */
+/* DESKTOP PDF ANSICHT (Vollkommen unverändert) */
 .pdf-wrapper {
     flex: 1.2;
     display: flex;
@@ -457,26 +462,34 @@ nav a:hover {
         text-align: left;
     }
 
-    /* MOBILER PDF-CONTAINER: Kein horizontales Wackeln/Schieben mehr */
+    /* PERFEKT SKALIERTES MOBILES PDF-FENSTER */
     .doc-preview-box.real-pdf {
-        height: 55vh;
+        height: 50vh;
         width: 100%;
         max-width: 100%;
-        overflow: hidden; /* Verhindert seitliches Verschieben */
+        overflow: hidden;
         border-radius: 8px;
+        position: relative;
     }
 
-    /* NATIVE MOBILE PFEIL-BUTTONS UNTER DEM PDF */
+    .doc-preview-box.real-pdf iframe {
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* Verhindert Feststecken im PDF beim Wischen auf Handys */
+    }
+
+    /* ELEGANTE BUTTONS UNTER DEM PDF */
     .mobile-pdf-controls {
         display: flex;
+        align-items: center;
         justify-content: center;
-        gap: 30px;
+        gap: 20px;
         margin-top: 15px;
         width: 100%;
     }
 
     .pdf-nav-btn {
-        width: 60px;
+        width: 55px;
         height: 45px;
         background-color: var(--card-bg);
         color: var(--accent-color);
@@ -494,6 +507,13 @@ nav a:hover {
         background-color: var(--accent-color);
         color: #000;
         transform: scale(0.95);
+    }
+
+    .pdf-page-indicator {
+        color: var(--accent-color);
+        font-size: 0.95rem;
+        font-weight: bold;
+        letter-spacing: 1px;
     }
 }
 
