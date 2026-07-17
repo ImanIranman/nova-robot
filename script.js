@@ -3,9 +3,33 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Nova Robot Portfolio-Webseite erfolgreich geladen.");
 
-    const pdfContainer = document.getElementById('pdfContainer');
+    let currentPage = 1;
+    const totalPages = 20; // Maximal-Seiten des PDFs
+    const pdfIframe = document.getElementById('pdfIframe');
     const pdfPrevBtn = document.getElementById('pdfPrevBtn');
     const pdfNextBtn = document.getElementById('pdfNextBtn');
+
+    // Funktion zum Wechseln der PDF-Seite
+    function updatePdfPage(newPage) {
+        if (newPage >= 1 && newPage <= totalPages) {
+            currentPage = newPage;
+            // Lädt das PDF direkt auf der angegebenen Seitenzahl
+            pdfIframe.src = `nova-dokumentation-v3.pdf#page=${currentPage}&toolbar=0&navpanes=0&view=FitH`;
+        }
+    }
+
+    // Event-Listener für mobile Buttons (unter dem PDF)
+    if (pdfPrevBtn && pdfNextBtn) {
+        pdfPrevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                updatePdfPage(currentPage - 1);
+            }
+        });
+
+        pdfNextBtn.addEventListener('click', () => {
+            updatePdfPage(currentPage + 1);
+        });
+    }
 
     // Deaktiviert das Zoomen via Strg + Mausrad
     document.addEventListener('wheel', (event) => {
@@ -14,35 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: false });
 
-    // Tasten-Steuerung abfangen
+    // Zoom-Tastenkombinationen verhindern
     document.addEventListener('keydown', (event) => {
-        // Deaktiviert Zoom-Tastenkombinationen (Strg + '+', Strg + '-', etc.)
         if (event.ctrlKey && (event.key === '+' || event.key === '-' || event.key === '=' || event.key === '0')) {
             event.preventDefault();
         }
-
-        // Pfeiltasten-Steuerung für das PDF-Dokument
-        if (pdfContainer) {
-            const scrollAmount = 60; // Pixel-Anzahl pro Tastendruck
-
-            if (event.key === 'ArrowDown') {
-                pdfContainer.scrollTop += scrollAmount;
-            } else if (event.key === 'ArrowUp') {
-                pdfContainer.scrollTop -= scrollAmount;
-            }
-        }
     });
-
-    // Button-Steuerung für PDF-Navigation
-    if (pdfPrevBtn && pdfContainer) {
-        pdfPrevBtn.addEventListener('click', () => {
-            pdfContainer.scrollTop -= 60;
-        });
-    }
-
-    if (pdfNextBtn && pdfContainer) {
-        pdfNextBtn.addEventListener('click', () => {
-            pdfContainer.scrollTop += 60;
-        });
-    }
 });
